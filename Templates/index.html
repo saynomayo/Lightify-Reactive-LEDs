@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="2">
+    <title>Now Playing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        .album-art {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .swatches {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .color-swatch {
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            border-radius: 5px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Now Playing</h1>
+        
+        {% if image_url %}
+            <img src="{{ image_url }}" alt="Album Art" class="album-art">
+        {% else %}
+            <p>No album art available.</p>
+        {% endif %}
+
+        <h2>Dominant Colors</h2>
+        <div class="swatches">
+            {% if colors %}
+                {% for color in colors %}
+                    <div class="color-swatch" style="background-color: rgb({{ color[0] }}, {{ color[1] }}, {{ color[2] }});"></div>
+                {% endfor %}
+            {% else %}
+                <p>No colors found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
