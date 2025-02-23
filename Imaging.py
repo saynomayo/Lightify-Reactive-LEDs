@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt  # optional; used for testing locally
 import time
 
 app = Flask(__name__)
-app.config['SESSION_COOKIE_NAME'] = '' // fill in yourself
-app.secret_key = '' // fill in yourself
+app.config['SESSION_COOKIE_NAME'] = # fill in yourself
+app.secret_key = '' # fill in yourself
 TOKEN_INFO = 'token_info'
 
 @app.route('/')
@@ -78,8 +78,8 @@ def get_token():
 
 def create_spotify_oauth(): 
     return SpotifyOAuth(
-        client_id='', // fill in from spotify developer dashboard
-        client_secret='', // fill in from spotify developer dashboard
+        client_id='', # fill in from spotify developer dashboard
+        client_secret='', # fill in from spotify developer dashboard
         redirect_uri=url_for('redirect_page', _external=True),
         scope='user-read-currently-playing user-read-playback-state'
     )
