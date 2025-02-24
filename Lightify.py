@@ -21,6 +21,12 @@ def adjust_gamma(color, gamma=0.5):
     # Apply inverse gamma correction to each RGB channel
     return tuple(int((channel / 255.0) ** (1 / gamma) * 255) for channel in color)
 
+def fade_to_color(target_colors, steps, delay):
+    #checks if current pixel colors hold values less than or greater to new colors
+    #adjusts colors accordingly
+    #maps the colors on each increment / decrement
+    return
+
 def map_colors(colors):
     """Assigns colors to the LED strip in groups and updates the strip."""
     corrected_colors = [adjust_gamma(tuple(color)) for color in colors]
